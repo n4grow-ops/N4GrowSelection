@@ -80,6 +80,11 @@ body {
     transition: opacity 0.4s var(--transition-smooth);
 }
 
+#app {
+    position: relative;
+    z-index: 1;
+}
+
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -274,6 +279,10 @@ textarea:focus {
     transition: var(--transition-smooth);
     cursor: pointer;
     margin-bottom: 10px;
+    position: relative;
+    /* Fix mobile touch layer */
+    z-index: 5;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .radio-option:hover,
@@ -286,8 +295,11 @@ textarea:focus {
 input[type="radio"],
 input[type="checkbox"] {
     accent-color: #ffffff;
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
 }
 
 .error-msg {
