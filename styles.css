@@ -277,12 +277,11 @@ textarea:focus {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid transparent;
     transition: var(--transition-smooth);
-    cursor: pointer;
     margin-bottom: 10px;
-    position: relative;
-    /* Fix mobile touch layer */
-    z-index: 5;
-    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
 .radio-option:hover,
@@ -292,14 +291,18 @@ textarea:focus {
     transform: translateX(5px);
 }
 
+.radio-option span,
+.checkbox-option span {
+    flex: 1;
+}
+
 input[type="radio"],
 input[type="checkbox"] {
     accent-color: #ffffff;
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     cursor: pointer;
-    position: relative;
-    z-index: 10;
+    flex-shrink: 0;
 }
 
 .error-msg {
@@ -491,56 +494,11 @@ input[type="checkbox"] {
         font-size: 2rem;
     }
 
-    /* CRITICAL MOBILE FIX: Remove backdrop-filter as it blocks touch events on many mobile browsers */
-    .form-section,
-    .role-card,
-    .toast {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        background: #11181c !important;
-        /* Solid background for mobile */
-    }
-
     .form-section {
-        padding: 25px;
+        padding: 30px;
     }
 
     .btn-primary {
         padding: 20px;
-    }
-
-    /* Ensure labels are the primary touch target and propagate clicks to inputs */
-    .radio-option,
-    .checkbox-option {
-        padding: 20px 24px !important;
-        margin-bottom: 12px !important;
-        background: rgba(255, 255, 255, 0.08) !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        display: flex !important;
-        align-items: center !important;
-        cursor: pointer !important;
-        z-index: 100 !important;
-        position: relative !important;
-    }
-
-    /* Prevent hidden background elements from catching touches */
-    #droplets-container,
-    .droplet {
-        display: none !important;
-        visibility: hidden !important;
-    }
-
-    /* Disable droplet animation on mobile to save CPU and prevent touch bugs */
-    * {
-        -webkit-tap-highlight-color: transparent !important;
-    }
-
-    /* Make the actual checkbox/radio slightly larger */
-    input[type="radio"],
-    input[type="checkbox"] {
-        width: 25px !important;
-        height: 25px !important;
-        margin-right: 15px !important;
-        cursor: pointer !important;
     }
 }
