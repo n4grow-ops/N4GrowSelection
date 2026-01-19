@@ -507,7 +507,7 @@ async function sendToWebhook(answers, validation) {
     };
 
     try {
-        const response = await fetch('https://n8n.n4growth.com/webhook-test/N4grow', {
+        const response = await fetch('https://n8n.n4growth.com/webhook/N4grow', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
@@ -616,3 +616,4 @@ document.addEventListener('DOMContentLoaded', () => {
         renderPortal();
     }
 });
+
