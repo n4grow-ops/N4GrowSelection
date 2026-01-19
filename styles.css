@@ -535,12 +535,12 @@ input[type="checkbox"] {
         -webkit-tap-highlight-color: transparent !important;
     }
 
-    /* Make the actual checkbox/radio slightly larger and ignore its own touches (label handles it) */
+    /* Make the actual checkbox/radio slightly larger */
     input[type="radio"],
     input[type="checkbox"] {
         width: 25px !important;
         height: 25px !important;
         margin-right: 15px !important;
-        pointer-events: none !important;
+        cursor: pointer !important;
     }
 }
